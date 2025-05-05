@@ -1,0 +1,158 @@
+/* Style général */
+.reservation-form-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+}
+
+/* Titre principal */
+.reservation-form-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.reservation-form-container h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #c19a6b; /* Couleur or comme Seybuse */
+}
+.Logo {
+    text-align: center;
+}
+
+.Logo h1{
+    color: #b8860b;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    transform: translate(40%, 100%);
+}
+
+.Logo p{
+    color: #333;
+    font-size: 14px;
+    font-weight: 300;
+    position: relative;
+    transform: translate(40%,190%);
+}
+
+
+.Logo img{
+    color: #333;
+    width: 25%;
+    height: 25%;
+    margin: 0%;
+    border-radius: 100%;
+    position: relative;
+    transform: translate(-100%,-40%);
+}
+/* Résumé de la réservation */
+.booking-summary {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #c19a6b;
+}
+
+.booking-summary h3 {
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+#bookingDetails {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Groupes de formulaire */
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.3s;
+    background: #f9f9f9;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #c19a6b;
+    box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.2);
+    background: #fff;
+}
+
+/* Bouton de soumission */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #c19a6b;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: #a8845a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(193, 154, 107, 0.3);
+}
+
+/* Effets modernes */
+#clientForm {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reservation-form-container {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .reservation-form-container h2 {
+        font-size: 24px;
+    }
+}

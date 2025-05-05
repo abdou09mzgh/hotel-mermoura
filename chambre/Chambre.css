@@ -1,0 +1,155 @@
+/* Styles spécifiques pour la section Chambres */
+.chambres-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.chambre-slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.chambre {
+    min-width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
+.chambre img {
+    width: 50%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.chambre img:hover {
+    transform: scale(1.02);
+}
+
+.chambre .info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.chambre h2 {
+    color: #b8860b;
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+.chambre .price {
+    color: #333;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.chambre p {
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.chambre ul {
+    margin-bottom: 30px;
+    list-style: none;
+}
+
+.chambre ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+    color: #555;
+}
+
+.chambre ul li::before {
+    content: '✓';
+    color: #b8860b;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.Button3 {
+    background: #b8860b;
+    color: #fff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.Button3:hover {
+    background: #a6780d;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.prev, .next {
+    background: rgba(255, 255, 255, 0.8);
+    color: #b8860b;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.prev:hover, .next:hover {
+    background: #b8860b;
+    color: #fff;
+}
+
+/* Responsive pour les chambres */
+@media (max-width: 768px) {
+    .chambre {
+        flex-direction: column;
+    }
+    
+    .chambre img, .chambre .info {
+        width: 100%;
+    }
+    
+    .chambre img {
+        height: 250px;
+    }
+    
+    .Button3 {
+        align-self: center;
+    }
+    
+    .controls {
+        top: auto;
+        bottom: 10px;
+        transform: none;
+    }
+}
