@@ -8,7 +8,7 @@ CREATE TABLE Restaurant (
     id_Restaurant INT PRIMARY KEY AUTO_INCREMENT,
     Prix DECIMAL(10,2) NOT NULL,
     capacite INT NOT NULL,
-    Kitchen_type VARCHAR NOT NULL,
+    Kitchen_type VARCHAR(100) NOT NULL,
     statut ENUM('Empty', 'Occupied') NOT NULL DEFAULT 'Empty',
     id_Hotel INT,
     FOREIGN KEY (id_Hotel) REFERENCES Hotel(id_Hotel) ON DELETE CASCADE
@@ -95,29 +95,29 @@ CREATE TABLE Admin (
 );
 
 
--- INSERT INTO Type_Chambre (nom_type, Prix, id_Hotel)
--- VALUES
--- ('Single', 50.00, 1),
--- ('Double', 80.00, 1),
--- ('Junior Single', 60.00, 1),
--- ('Junior Double', 90.00, 1),
--- ('Apart Single', 100.00, 1),
--- ('Apart Double', 150.00, 1);
+INSERT INTO Type_Chambre (nom_type, Prix, id_Hotel)
+VALUES
+('Single', 50.00, 1),
+('Double', 80.00, 1),
+('Junior Single', 60.00, 1),
+('Junior Double', 90.00, 1),
+('Apart Single', 100.00, 1),
+('Apart Double', 150.00, 1);
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 1, 'Empty', 1 FROM dual LIMIT 20;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 1, 'Empty', 1 FROM dual LIMIT 20;
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 2, 'Empty', 1 FROM dual LIMIT 15;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 2, 'Empty', 1 FROM dual LIMIT 15;
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 3, 'Empty', 1 FROM dual LIMIT 12;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 3, 'Empty', 1 FROM dual LIMIT 12;
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 4, 'Empty', 1 FROM dual LIMIT 12;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 4, 'Empty', 1 FROM dual LIMIT 12;
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 5, 'Empty', 1 FROM dual LIMIT 9;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 5, 'Empty', 1 FROM dual LIMIT 9;
 
--- INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
--- SELECT 6, 'Empty', 1 FROM dual LIMIT 8;
+INSERT INTO Chambre (id_Type_Chambre, statut, id_Hotel)
+SELECT 6, 'Empty', 1 FROM dual LIMIT 8;

@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/hotel-mermoura/config/database.php';
 try {
     $input = json_decode(file_get_contents('php://input'), true);
 
-    $required = ['arrival', 'departure', 'roomType', 'guests', 'firstName', 'lastName', 'email', 'phone', 'hotelId'];
+    $required = ['arrival', 'departure', 'roomType', 'guests', 'firstName', 'lastName', 'email', 'phone'];
     foreach ($required as $field) {
         if (empty($input[$field])) {
             throw new Exception("Le champ $field est requis");
@@ -25,7 +25,7 @@ try {
         throw new Exception("La date de départ doit être après la date d'arrivée.");
     }
 
-    $hotelId = (int)$input['hotelId'];
+    $hotelId = 1;
 
     $conn->beginTransaction();
 

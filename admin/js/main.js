@@ -1,7 +1,7 @@
 // main.js - Shared functionality across admin pages
 document.addEventListener('DOMContentLoaded', function() {
     // Check authentication
-    checkAuth();
+    // checkAuth();
     
     // Sidebar toggle functionality
     const sidebarToggle = document.querySelector('.sidebar-toggle');
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function checkAuth() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if(!isLoggedIn && !window.location.pathname.endsWith('index.html')) {
-        window.location.href = 'index.html';
-    }
-}
+// function checkAuth() {
+//     const isLoggedIn = localStorage.getItem('isLoggedIn');
+//     if(!isLoggedIn && !window.location.pathname.endsWith('index.html')) {
+//         window.location.href = 'index.html';
+//     }
+// }
