@@ -32,7 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const result = await response.json();
 
             if (result.success) {
-                window.location.href = `../confirmation.html?id=${result.reservationId}`;
+                localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
+
+                if (bookingData.paymentMethod === 'online') {
+                    window.location.href = '../dahabiya.html?id=' + result.reservationId;
+                } else {
+                    window.location.href = '../confirmation.html?id=' + result.reservationId;
+                }
             } else {
                 alert('Erreur: ' + result.message);
             }
@@ -42,3 +48,4 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
