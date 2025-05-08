@@ -1,26 +1,3 @@
-// document.getElementById("userAccountForm").addEventListener("submit", function(event) {
-//     event.preventDefault();
-
-//     const firstName = document.getElementById("userFirstName").value.trim();
-//     const lastName = document.getElementById("userLastName").value.trim();
-//     const username = document.getElementById("username").value.trim();
-//     const password = document.getElementById("userPassword").value.trim();
-//     const hotelId = document.getElementById("hotelId").value.trim();
-
-//     const userData = {
-//         userFirstName: firstName,
-//         userLastName: lastName,
-//         username: username,
-//         hotelId: hotelId
-//     };
-
-//     localStorage.setItem('isLoggedIn', 'true');
-//     localStorage.setItem('userData', JSON.stringify(userData));
-
-//     window.location.href = '/hotel-mermoura/admin/dashboard.html';
-// });
-
-
 document.getElementById("userAccountForm").addEventListener("submit", function(event) {
     event.preventDefault();
 

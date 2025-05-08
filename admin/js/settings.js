@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
         input.addEventListener('change', function() {
             const previewId = this.id + 'Preview';
             const previewElement = document.getElementById(previewId) || 
-                                  this.closest('.file-upload').querySelector('img');
+                                    this.closest('.file-upload').querySelector('img');
             
             if (this.files && this.files[0]) {
                 const reader = new FileReader();

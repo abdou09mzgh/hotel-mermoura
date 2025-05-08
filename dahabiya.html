@@ -105,6 +105,47 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
     </style>
+    
+</head>
+<body>
+
+    <div class="header">
+        <h1>HOTEL MERMOURA</h1>
+        <p>GUELMA</p>
+    </div>
+
+    <div class="container">
+        <h1>Invoice for Payment</h1>
+
+        <!-- Total Section -->
+        <p class="total"><span class="label">Total price:</span> <span id="total-price" class="price"></span></p>
+
+        <!-- Payment Form -->
+        <div class="payment-form">
+            <h2>Payment with Golden Algerian Card</h2>
+            <form onsubmit="handleSubmit(event)">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" name="card_number" required placeholder="Enter your Golden Algerian Card Number" maxlength="16" pattern="\d{16}" inputmode="numeric">
+
+                <label for="card-expiry">Expiry Date (MM/YY):</label>
+                <input type="text" id="card-expiry" name="card_expiry" required placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}" inputmode="numeric">
+
+                <label for="card-cvc">CVC Code:</label>
+                <input type="number" id="card-cvc" name="card_cvc" required placeholder="Enter CVC Code" maxlength="3" pattern="\d{3}" inputmode="numeric">
+
+                <label for="amount">Amount to Pay (DZD):</label>
+                <input type="number" id="amount" name="amount" required >
+
+                <input type="submit" class="pay-btn" value="Pay Now">
+            </form>
+        </div>
+
+        <p class="note">Note: This is a simulation. For actual payment, please integrate with a payment gateway.</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2023 Hotel Mermoura. All rights reserved.</p>
+    </div>
     <script>
         function handleSubmit(event) {
             event.preventDefault();
@@ -158,48 +199,34 @@
             // Redirect to confirmation page
             window.location.href = "confirmation.html";
         }
+            // Total price
+        document.addEventListener('DOMContentLoaded', function () {
+            const data = JSON.parse(localStorage.getItem('hotelBooking'));
+
+    if (!data) {
+        document.body.innerHTML = '<p>Aucune réservation trouvée.</p>';
+        return;
+    }
+
+    const nights = Math.max(
+        (new Date(data.departure) - new Date(data.arrival)) / (1000 * 60 * 60 * 24),
+        1
+    );
+
+    const prices = {
+        "Single": 5000,
+        "Double": 8000,
+        "Junior-Single": 10000,
+        "Junior-Double": 12000,
+        "Apart-Single": 15000,
+        "Apart-Double": 18000
+    };
+
+        const roomPrice = prices[data.roomType] || 0;
+        const totalPrice = nights * roomPrice;
+        document.getElementById('total-price').textContent = totalPrice.toLocaleString('fr-DZ') + ' DA';
+    });
     </script>
-</head>
-<body>
-
-    <div class="header">
-        <h1>HOTEL MERMOURA</h1>
-        <p>GUELMA</p>
-    </div>
-
-    <div class="container">
-        <h1>Invoice for Payment</h1>
-
-        <!-- Total Section -->
-        <p class="total">Total Amount: 10000 DZD</p>
-
-        <!-- Payment Form -->
-        <div class="payment-form">
-            <h2>Payment with Golden Algerian Card</h2>
-            <form onsubmit="handleSubmit(event)">
-                <label for="card-number">Card Number:</label>
-                <input type="text" id="card-number" name="card_number" required placeholder="Enter your Golden Algerian Card Number" maxlength="16" pattern="\d{16}" inputmode="numeric">
-
-                <label for="card-expiry">Expiry Date (MM/YY):</label>
-                <input type="text" id="card-expiry" name="card_expiry" required placeholder="MM/YY" maxlength="5" pattern="(0[1-9]|1[0-2])\/\d{2}" inputmode="numeric">
-
-                <label for="card-cvc">CVC Code:</label>
-                <input type="number" id="card-cvc" name="card_cvc" required placeholder="Enter CVC Code" maxlength="3" pattern="\d{3}" inputmode="numeric">
-
-                <label for="amount">Amount to Pay (DZD):</label>
-                <input type="number" id="amount" name="amount" required value="10000" readonly>
-
-                <input type="submit" class="pay-btn" value="Pay Now">
-            </form>
-        </div>
-
-        <p class="note">Note: This is a simulation. For actual payment, please integrate with a payment gateway.</p>
-    </div>
-
-    <div class="footer">
-        <p>&copy; 2023 Hotel Mermoura. All rights reserved.</p>
-    </div>
-
 </body>
 </html>
     

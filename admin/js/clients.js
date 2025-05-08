@@ -217,6 +217,6 @@ const btn2 = document.querySelector('.btn-add-client');
 
 if (btn2) {
     btn2.onclick = function () {
-    window.location.href = 'addclient.html';
+    window.location.href = '/hotel-mermoura/admin/addclient.html';
     };
 }

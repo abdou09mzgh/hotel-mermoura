@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
 
                 if (bookingData.paymentMethod === 'online') {
-                    window.location.href = '../../dahabiya.html?id=' + result.reservationId;
+                    window.location.href = '/hotel-mermoura/dahabiya.html?id=' + result.reservationId;
                 } else {
                     window.location.href = '/hotel-mermoura/confirmation.html?id=' + result.reservationId;
                 }
