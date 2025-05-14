@@ -38,7 +38,7 @@
     justify-content: space-between;
 }
 
-.reservation-form form {
+.reservation-form .form {
     flex: 1;
     min-width: 300px;
     background: #f8f9fa;
@@ -128,7 +128,7 @@ input[type="checkbox"] {
         flex-direction: column;
     }
     
-    .reservation-form form {
+    .reservation-form .form {
         width: 100%;
     }
 }
