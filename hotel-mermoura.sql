@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2025 at 01:45 AM
+-- Generation Time: May 14, 2025 at 10:28 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,11 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_Admin`, `FirstName`, `LastName`, `User_name`, `password`, `id_Hotel`) VALUES
-(1, 'abdou', 'mezghache', 'abdou_mzgh', '$2y$10$PnpErkqctBLUspQup7B76ed4kIlOfQ32T3JtP0x0UraWWXpEy0OVW', 1),
-(2, 'abdou', 'mezghache', 'marwen_haine', '$2y$10$eHtAtn2QjPCzYNeAKeMvvuM/UaSnP.Hey0pWQyuQIfIUFGPyb6bpm', 1),
-(3, 'abdou', 'Aidoud', 'sir09charles', '$2y$10$c.wnvBrnVedVn/jGGcwECOvbLsiUT7uaDUplGMisDTFinowbf3cpm', 1),
-(4, 'Shahd', 'mezghache', 'hadjer_bouragbi', '$2y$10$SrloQPAlpyu9JCKt/b.atuvazdrBuCjByGUTO4KHFfnKBXcuRj42e', 1),
-(5, 'Shahd', 'Aidoud', 'shahd', '$2y$10$JYJ6WK.sH/XkwFiaQFqFR.jo51G.VX6n.PqkK2QLcgbRZw7clvOOq', 1);
+(6, 'abdou', 'mezghache', 'abdou_mzgh', '$2y$10$k6LgOtAGbXc5etst5tfnhus2esSsHo0e0A2PQjmXSggl9T00zekFy', 1);
 
 -- --------------------------------------------------------
 
@@ -65,18 +61,12 @@ CREATE TABLE `chambre` (
 --
 
 INSERT INTO `chambre` (`id_Chambre`, `id_Type_Chambre`, `statut`, `id_Hotel`) VALUES
-(5, 1, 'Occupied', 1),
+(5, 1, 'Empty', 1),
 (6, 2, 'Empty', 1),
 (7, 3, 'Empty', 1),
-(9, 1, 'Empty', 1),
-(10, 2, 'Empty', 1),
-(11, 3, 'Empty', 1),
-(13, 1, 'Empty', 1),
-(14, 2, 'Empty', 1),
-(15, 3, 'Empty', 1),
-(16, 4, 'Empty', 1),
-(17, 5, 'Empty', 1),
-(18, 6, 'Empty', 1);
+(9, 4, 'Empty', 1),
+(10, 5, 'Empty', 1),
+(11, 6, 'Empty', 1);
 
 -- --------------------------------------------------------
 
@@ -92,13 +82,6 @@ CREATE TABLE `client` (
   `Email_Client` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `client`
---
-
-INSERT INTO `client` (`id_Client`, `FName_Client`, `LName_Client`, `Phone_Client`, `Email_Client`) VALUES
-(1, 'abdou', 'Mezghache', '0791494240', 'abdou09mzgh@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -111,13 +94,6 @@ CREATE TABLE `facture` (
   `date_facture` date NOT NULL,
   `id_Reservation` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `facture`
---
-
-INSERT INTO `facture` (`id_Facture`, `montant_total`, `date_facture`, `id_Reservation`) VALUES
-(1, 500.00, '2025-05-07', 1);
 
 -- --------------------------------------------------------
 
@@ -166,15 +142,9 @@ CREATE TABLE `reservation` (
   `id_Client` int(11) NOT NULL,
   `id_Chambre` int(11) DEFAULT NULL,
   `id_Salle` int(11) DEFAULT NULL,
+  `id_Restaurant` int(11) DEFAULT NULL,
   `id_Hotel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `reservation`
---
-
-INSERT INTO `reservation` (`id_Reservation`, `Date_Arive`, `Date_Depart`, `Nbre_personnes`, `id_Client`, `id_Chambre`, `id_Salle`, `id_Hotel`) VALUES
-(1, '2025-05-07', '2025-05-17', 1, 1, 5, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -225,12 +195,12 @@ CREATE TABLE `type_chambre` (
 --
 
 INSERT INTO `type_chambre` (`id_Type_Chambre`, `nom_type`, `Prix`, `nombres_chambres`, `id_Hotel`) VALUES
-(1, 'Single', 50.00, 20, 1),
-(2, 'Double', 80.00, 0, 1),
-(3, '', 60.00, 0, 1),
-(4, '', 90.00, 0, 1),
-(5, '', 100.00, 0, 1),
-(6, '', 150.00, 0, 1);
+(1, 'Single', 5000.00, 20, 1),
+(2, 'Double', 8000.00, 15, 1),
+(3, 'Junior-Single', 10000.00, 12, 1),
+(4, 'Junior-Double', 12000.00, 12, 1),
+(5, 'Apart-Single', 15000.00, 9, 1),
+(6, 'Apart-Double', 18000.00, 8, 1);
 
 --
 -- Indexes for dumped tables
@@ -286,6 +256,7 @@ ALTER TABLE `reservation`
   ADD KEY `id_Client` (`id_Client`),
   ADD KEY `id_Chambre` (`id_Chambre`),
   ADD KEY `id_Salle` (`id_Salle`),
+  ADD KEY `id_Restaurant` (`id_Restaurant`),
   ADD KEY `id_Hotel` (`id_Hotel`);
 
 --
@@ -317,7 +288,7 @@ ALTER TABLE `type_chambre`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `chambre`
@@ -329,13 +300,13 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `hotel`
@@ -347,13 +318,13 @@ ALTER TABLE `hotel`
 -- AUTO_INCREMENT for table `paiement`
 --
 ALTER TABLE `paiement`
-  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
@@ -371,7 +342,7 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT for table `type_chambre`
 --
 ALTER TABLE `type_chambre`
-  MODIFY `id_Type_Chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_Type_Chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -409,7 +380,8 @@ ALTER TABLE `reservation`
   ADD CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`id_Client`) REFERENCES `client` (`id_Client`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_2` FOREIGN KEY (`id_Chambre`) REFERENCES `chambre` (`id_Chambre`) ON DELETE CASCADE,
   ADD CONSTRAINT `reservation_ibfk_3` FOREIGN KEY (`id_Salle`) REFERENCES `salle` (`id_Salle`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reservation_ibfk_4` FOREIGN KEY (`id_Hotel`) REFERENCES `hotel` (`id_Hotel`) ON DELETE CASCADE;
+  ADD CONSTRAINT `reservation_ibfk_4` FOREIGN KEY (`id_Restaurant`) REFERENCES `restaurant` (`id_Restaurant`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reservation_ibfk_5` FOREIGN KEY (`id_Hotel`) REFERENCES `hotel` (`id_Hotel`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `restaurant`

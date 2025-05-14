@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/hotel-mermoura/config/database.php';
 try {
     $input = json_decode(file_get_contents('php://input'), true);
 
-    $required = ['arrival', 'departure', 'roomType', 'guests', 'firstName', 'lastName', 'email', 'phone'];
+    $required = ['arrival', 'departure', 'roomType', 'guests', 'firstName', 'lastName', 'email', 'phone', 'paymentMethod'];
     foreach ($required as $field) {
         if (empty($input[$field])) {
             throw new Exception("Le champ $field est requis");
@@ -39,7 +39,6 @@ try {
     ]);
     $clientId = $conn->lastInsertId();
 
-    // Trouver un type de chambre disponible dans cet hôtel
     $stmt = $conn->prepare("SELECT c.id_Chambre, tc.Prix 
                             FROM Chambre c
                             JOIN Type_Chambre tc ON c.id_Type_Chambre = tc.id_Type_Chambre
@@ -76,6 +75,19 @@ try {
     $stmt = $conn->prepare("INSERT INTO Facture (montant_total, date_facture, id_Reservation) 
                             VALUES (?, CURDATE(), ?)");
     $stmt->execute([$total, $reservationId]);
+    $invoiceId = $conn->lastInsertId();
+
+    // Paiement
+    $paymentMode = $input['paymentMethod'];
+    if (!in_array($paymentMode, ['online', 'hotel'])) {
+        throw new Exception("Mode de paiement invalide.");
+    }
+
+    $paymentDate = ($paymentMode === 'online') ? (new DateTime())->format('Y-m-d') : $arrivalDate->format('Y-m-d');
+
+    $stmt = $conn->prepare("INSERT INTO Paiement (mode_paiement, montant, date_paiement, id_Facture) 
+                            VALUES (?, ?, ?, ?)");
+    $stmt->execute([$paymentMode, $total, $paymentDate, $invoiceId]);
 
     $conn->commit();
 
@@ -84,7 +96,6 @@ try {
         'reservationId' => $reservationId,
         'total' => $total
     ]);
-
     exit;
 
 } catch (Exception $e) {
@@ -97,4 +108,3 @@ try {
         'message' => $e->getMessage()
     ]);
 }
-?>

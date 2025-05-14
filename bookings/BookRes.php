@@ -20,6 +20,7 @@ include 'db.php';
 $prix = $_POST['prix'];
 $capacite = $_POST['capacite'];
 $statut = $_POST['statut'];
+$food = $_POST['food']; // Define the $food variable
 $id_hotel = $_POST['id_hotel'];
 
 $sql = "INSERT INTO Restaurant (Prix, capacite, statut, food, id_Hotel)
