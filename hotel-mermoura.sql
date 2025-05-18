@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2025 at 10:28 PM
+-- Generation Time: May 18, 2025 at 10:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -154,10 +154,10 @@ CREATE TABLE `reservation` (
 
 CREATE TABLE `restaurant` (
   `id_Restaurant` int(11) NOT NULL,
-  `Prix` decimal(10,2) NOT NULL,
+  `Date_Arive` date NOT NULL,
   `capacite` int(11) NOT NULL,
   `Kitchen_type` varchar(100) NOT NULL,
-  `statut` enum('Empty','Occupied') NOT NULL DEFAULT 'Empty',
+  `id_Client` int(11) NOT NULL,
   `id_Hotel` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -264,6 +264,7 @@ ALTER TABLE `reservation`
 --
 ALTER TABLE `restaurant`
   ADD PRIMARY KEY (`id_Restaurant`),
+  ADD KEY `id_Client` (`id_Client`),
   ADD KEY `id_Hotel` (`id_Hotel`);
 
 --
@@ -300,13 +301,13 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `hotel`
@@ -318,19 +319,19 @@ ALTER TABLE `hotel`
 -- AUTO_INCREMENT for table `paiement`
 --
 ALTER TABLE `paiement`
-  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id_Restaurant` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Restaurant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salle`
@@ -387,7 +388,8 @@ ALTER TABLE `reservation`
 -- Constraints for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`id_Hotel`) REFERENCES `hotel` (`id_Hotel`) ON DELETE CASCADE;
+  ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`id_Client`) REFERENCES `client` (`id_Client`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_ibfk_2` FOREIGN KEY (`id_Hotel`) REFERENCES `hotel` (`id_Hotel`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `salle`

@@ -1,40 +1,58 @@
-
 <?php
-include 'db.php';
+header('Content-Type: application/json');
+$data = json_decode(file_get_contents("php://input"), true);
 
-$sql = "SELECT * FROM Restaurant";
-$result = $conn->query($sql);
-
-$restaurants = [];
-
-while ($row = $result->fetch_assoc()) {
-    $restaurants[] = $row;
+if (!$data) {
+    echo json_encode(['success' => false, 'message' => 'Données manquantes']);
+    exit;
 }
 
-echo json_encode($restaurants);
-$conn->close();
-?>
-<?php
-include 'db.php';
+require_once '../config/Database.php';
 
-$prix = $_POST['prix'];
-$capacite = $_POST['capacite'];
-$statut = $_POST['statut'];
-$food = $_POST['food']; // Define the $food variable
-$id_hotel = $_POST['id_hotel'];
+$arrivalDate = $data['arrival'];
+$kitchenType = $data['kitchenType'];
+$guests = (int)$data['guests'];
+$firstName = $data['firstName'];
+$lastName = $data['lastName'];
+$email = $data['email'];
+$phone = $data['phone'];
+$paymentMethod = $data['paymentMethod'];
 
-$sql = "INSERT INTO Restaurant (Prix, capacite, statut, food, id_Hotel)
-        VALUES (?, ?, ?, ?, ?)";
+$hotelId = 1;
+$prixParPersonne = 30.00;
+$total = $prixParPersonne * $guests;
 
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("dissi", $prix, $capacite, $statut, $food, $id_hotel);
+try {
+    $conn->beginTransaction();
 
-if ($stmt->execute()) {
-    echo "Restaurant added successfully.";
-} else {
-    echo "Error: " . $stmt->error;
+    // Client
+    $stmt = $conn->prepare("INSERT INTO Client (FName_Client, LName_Client, Phone_Client, Email_Client) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$firstName, $lastName, $phone, $email]);
+    $clientId = $conn->lastInsertId();
+
+    // Restaurant
+    $stmt = $conn->prepare("INSERT INTO Restaurant (Date_Arive, capacite, Kitchen_type, id_Client, id_Hotel) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$arrivalDate, $guests, $kitchenType, $clientId, $hotelId]);
+    $restaurantId = $conn->lastInsertId();
+
+    // Reservation
+    $stmt = $conn->prepare("INSERT INTO Reservation (Date_Arive, Date_Depart, Nbre_personnes, id_Client, id_Restaurant, id_Hotel) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$arrivalDate, $arrivalDate, $guests, $clientId, $restaurantId, $hotelId]);
+    $reservationId = $conn->lastInsertId();
+
+    // Facture
+    $stmt = $conn->prepare("INSERT INTO Facture (montant_total, date_facture, id_Reservation) VALUES (?, ?, ?)");
+    $stmt->execute([$total, date('Y-m-d'), $reservationId]);
+    $factureId = $conn->lastInsertId();
+
+    // Paiement
+    $stmt = $conn->prepare("INSERT INTO Paiement (mode_paiement, montant, date_paiement, id_Facture) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$paymentMethod, $total, date('Y-m-d'), $factureId]);
+
+    $conn->commit();
+
+    echo json_encode(['success' => true, 'reservationId' => $reservationId]);
+} catch (Exception $e) {
+    $conn->rollBack();
+    echo json_encode(['success' => false, 'message' => 'Erreur serveur']);
 }
-
-$stmt->close();
-$conn->close();
-?>
