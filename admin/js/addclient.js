@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (bookingData.paymentMethod === 'online') {
                     window.location.href = '/hotel-mermoura/dahabiya.html?id=' + result.reservationId;
                 } else {
-                    window.location.href = '/hotel-mermoura/confirmation.html?id=' + result.reservationId;
+                    window.location.href = '/hotel-mermoura/confirmation/confirmation.html?id=' + result.reservationId;
                 }
             } else {
                 alert('Erreur: ' + result.message);
