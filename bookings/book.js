@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (bookingData.paymentMethod === 'online') {
                     window.location.href = '../dahabiya.html?id=' + result.reservationId;
                 } else {
-                    window.location.href = '../confirmation.html?id=' + result.reservationId;
+                    window.location.href = '../confirmation/confirmation.html?id=' + result.reservationId;
                 }
             } else {
                 alert('Erreur: ' + result.message);

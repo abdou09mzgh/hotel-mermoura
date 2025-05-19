@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmation de Réservation</title>
+  <link rel="stylesheet" href="confirmation.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <div class="confirmation-card">
+    <h2>✔ Réservation Confirmée</h2>
+    <div class="details">
+      <p><span class="label">Nom:</span> <span id="client-name"></span></p>
+      <p><span class="label">Type de chambre:</span> <span id="room-type"></span></p>
+      <p><span class="label">Date d'arrivée:</span> <span id="arrival-date"></span></p>
+      <p><span class="label">Date de départ:</span> <span id="departure-date"></span></p>
+      <p><span class="label">Nombre de nuits:</span> <span id="nights-count"></span></p>
+      <p><span class="label">Nombre de personnes:</span> <span id="guests-count"></span></p>
+      <p><span class="label">Méthode de paiement:</span> <span id="payment-method"></span></p>
+      <p><span class="label">Prix total:</span> <span id="total-price" class="price"></span></p>
+    </div>
+  </div>
+
+  <button id="download-pdf">Télécharger le PDF</button>
+  <a href="../Accueil.html">Retour à l'accueil</a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="confirmation.js"></script>
+
+</body>
+</html>
