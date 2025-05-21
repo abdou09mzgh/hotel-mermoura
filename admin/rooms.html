@@ -104,42 +104,25 @@
                                 <th>Room Type</th>
                                 <th>Price/Night</th>
                                 <th>Size</th>
-                                <th>Capacity</th>
                                 <th>Availability</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>RM-101</td>
-                        
-                                <td>Single Room</td>
-                                <td>17,900 DZD</td>
-                                <td>60 m²</td>
-                                <td>1-2</td>
-                                <td><span class="status available">Available</span></td>
-                                <td class="actions">
-                                    
-                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                        
+                            
                         </tbody>
                     </table>
                 </div>
 
                 <!-- Pagination -->
                 <div class="pagination">
-                    <button class="btn-pagination" disabled>
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="btn-pagination active">1</button>
-                    <button class="btn-pagination">2</button>
-                    <button class="btn-pagination">3</button>
-                    <button class="btn-pagination">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+                    <button class="btn-pagination" data-page="prev">«</button>
+                    <button class="btn-pagination active" data-page="1">1</button>
+                    <button class="btn-pagination" data-page="2">2</button>
+                    <button class="btn-pagination" data-page="3">3</button>
+                    <button class="btn-pagination" data-page="next">»</button>
                 </div>
+
             </div>
         </main>
     </div>
@@ -222,8 +205,6 @@
             </div>
         </div>
     </div>
-
-    <script src="js/main.js"></script>
     <script src="js/rooms.js"></script>
 </body>
 </html>

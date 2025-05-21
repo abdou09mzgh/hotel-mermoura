@@ -1,95 +1,88 @@
-// rooms.js - Rooms Management Page Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Modal elements
-    const addRoomBtn = document.getElementById('addRoomBtn');
-    const roomModal = document.getElementById('roomModal');
-    const closeModal = document.getElementById('closeModal');
-    const cancelRoomBtn = document.getElementById('cancelRoomBtn');
-    const roomForm = document.getElementById('roomForm');
-    
-    // Edit buttons
-    const editButtons = document.querySelectorAll('.btn-edit');
-    
-    // Delete buttons
-    const deleteButtons = document.querySelectorAll('.btn-delete');
-    
-    // Open modal for adding new room
-    if(addRoomBtn) {
-        addRoomBtn.addEventListener('click', function() {
-            document.getElementById('modalTitle').textContent = 'Add New Room';
-            roomForm.reset();
-            roomModal.classList.add('active');
+const roomTableBody = document.querySelector('.rooms-table tbody');
+const addRoomBtn = document.getElementById('addRoomBtn');
+const modal = document.getElementById('roomModal');
+const cancelBtn = document.getElementById('cancelRoomBtn');
+const closeModal = document.getElementById('closeModal');
+const roomForm = document.getElementById('roomForm');
+const paginationBtns = document.querySelectorAll('.btn-pagination');
+
+let currentPage = 1;
+const limit = 5;
+
+function loadRooms(page = 1) {
+    fetch(`php/get_rooms.php?page=${page}&limit=${limit}`)
+        .then(res => res.json())
+        .then(data => {
+            roomTableBody.innerHTML = "";
+            data.forEach(room => {
+                roomTableBody.innerHTML += `
+                    <tr>
+                        <td>${room.room_id}</td>
+                        <td>${room.nom_type}</td>
+                        <td>${room.Prix} DZD</td>
+                        <td>—</td>
+                        <td><span class="status ${room.statut.toLowerCase()}">${room.statut}</span></td>
+                        <td class="actions">
+                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>`;
+            });
         });
-    }
-    
-    // Close modal
-    if(closeModal) {
-        closeModal.addEventListener('click', function() {
-            roomModal.classList.remove('active');
-        });
-    }
-    
-    if(cancelRoomBtn) {
-        cancelRoomBtn.addEventListener('click', function() {
-            roomModal.classList.remove('active');
-        });
-    }
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', function(e) {
-        if(e.target === roomModal) {
-            roomModal.classList.remove('active');
-        }
-    });
-    
-    // Form submission
-    if(roomForm) {
-        roomForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would normally send data to server
-            alert('Room saved successfully!');
-            roomModal.classList.remove('active');
-            // In a real app, you would update the table here
-        });
-    }
-    
-    // Edit room functionality
-    editButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const row = this.closest('tr');
-            // Get data from the row
-            const roomId = row.cells[0].textContent;
-            const roomType = row.cells[2].textContent;
-            const price = row.cells[3].textContent.replace(/\D/g, '');
-            const size = row.cells[4].textContent.replace(/\D/g, '');
-            const capacity = row.cells[5].textContent.split('-')[1];
-            const availability = row.cells[6].querySelector('.status').classList[1];
-            
-            // Set modal title
-            document.getElementById('modalTitle').textContent = 'Edit Room ' + roomId;
-            
-            // Fill form with data
-            document.getElementById('roomType').value = roomType.split(' ')[0];
-            document.getElementById('roomNumber').value = roomId;
-            document.getElementById('price').value = price;
-            document.getElementById('size').value = size;
-            document.getElementById('capacity').value = capacity;
-            document.getElementById('availability').value = availability;
-            
-            // Open modal
-            roomModal.classList.add('active');
-        });
-    });
-    
-    // Delete room functionality
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            if(confirm('Are you sure you want to delete this room?')) {
-                const row = this.closest('tr');
-                // In a real app, you would send a request to delete from server
-                row.remove();
-                alert('Room deleted successfully!');
-            }
-        });
+}
+
+paginationBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (btn.disabled || btn.classList.contains('active')) return;
+
+        if (btn.innerText === '«') currentPage--;
+        else if (btn.innerText === '»') currentPage++;
+        else currentPage = parseInt(btn.innerText);
+
+        paginationBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadRooms(currentPage);
     });
 });
+
+addRoomBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
+
+cancelBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    roomForm.reset();
+});
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    roomForm.reset();
+});
+
+roomForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = {
+        roomType: document.getElementById('roomType').value,
+        roomNumber: document.getElementById('roomNumber').value,
+        price: parseFloat(document.getElementById('price').value),
+        size: parseInt(document.getElementById('size').value),
+        capacity: parseInt(document.getElementById('capacity').value),
+        availability: document.getElementById('availability').value
+    };
+
+    fetch('../php/add_room.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+    })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                modal.style.display = 'none';
+                roomForm.reset();
+                loadRooms(currentPage);
+            }
+        });
+});
+
+loadRooms(currentPage);
