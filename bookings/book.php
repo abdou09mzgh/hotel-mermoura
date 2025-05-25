@@ -26,45 +26,27 @@ try {
     }
 
     $hotelId = 1;
-
     $conn->beginTransaction();
 
-    $stmt = $conn->prepare("INSERT INTO Client (FName_Client, LName_Client, Phone_Client, Email_Client) 
-                            VALUES (?, ?, ?, ?)");
-    $stmt->execute([
-        $input['firstName'],
-        $input['lastName'],
-        $input['phone'],
-        $input['email']
-    ]);
+    $stmt = $conn->prepare("INSERT INTO Client (FName_Client, LName_Client, Phone_Client, Email_Client) VALUES (?, ?, ?, ?)");
+    $stmt->execute([$input['firstName'], $input['lastName'], $input['phone'], $input['email']]);
     $clientId = $conn->lastInsertId();
 
     $stmt = $conn->prepare("SELECT c.id_Chambre, tc.Prix 
                             FROM Chambre c
                             JOIN Type_Chambre tc ON c.id_Type_Chambre = tc.id_Type_Chambre
-                            WHERE tc.nom_type = ? AND c.statut = 'Empty' AND c.id_Hotel = ? 
+                            WHERE tc.nom_type = ? AND c.statut = 'Empty' AND c.id_Hotel = ?
                             LIMIT 1");
-    $stmt->execute([
-        $input['roomType'],
-        $hotelId
-    ]);
+    $stmt->execute([$input['roomType'], $hotelId]);
     $room = $stmt->fetch();
 
     if (!$room) {
         throw new Exception("Chambre non disponible");
     }
 
-    $stmt = $conn->prepare("INSERT INTO Reservation 
-                            (Date_Arive, Date_Depart, Nbre_personnes, id_Client, id_Chambre, id_Hotel) 
-                            VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([
-        $input['arrival'],
-        $input['departure'],
-        $input['guests'],
-        $clientId,
-        $room['id_Chambre'],
-        $hotelId
-    ]);
+    $stmt = $conn->prepare("INSERT INTO Reservation_Chambre (Date_Arive, Date_Depart, Nbre_personnes, id_Client, id_Chambre) 
+                            VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$input['arrival'], $input['departure'], $input['guests'], $clientId, $room['id_Chambre']]);
     $reservationId = $conn->lastInsertId();
 
     $conn->exec("UPDATE Chambre SET statut = 'Occupied' WHERE id_Chambre = ".$room['id_Chambre']);
@@ -72,12 +54,11 @@ try {
     $nights = $arrivalDate->diff($departureDate)->days;
     $total = $room['Prix'] * $nights;
 
-    $stmt = $conn->prepare("INSERT INTO Facture (montant_total, date_facture, id_Reservation) 
+    $stmt = $conn->prepare("INSERT INTO Facture (montant_total, date_facture, id_Reservation_Chambre) 
                             VALUES (?, CURDATE(), ?)");
     $stmt->execute([$total, $reservationId]);
     $invoiceId = $conn->lastInsertId();
 
-    // Paiement
     $paymentMode = $input['paymentMethod'];
     if (!in_array($paymentMode, ['online', 'hotel'])) {
         throw new Exception("Mode de paiement invalide.");

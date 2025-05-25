@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             paymentMethod: document.querySelector('input[name="payment"]:checked')?.value || ''
         };
 
-        const missingField = Object.entries(bookingData).find(([key, value]) => !value);
+        const missingField = Object.entries(bookingData).find(([_, value]) => !value);
         if (missingField) {
             alert(`Le champ ${missingField[0]} est requis.`);
             return;
@@ -48,4 +48,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
