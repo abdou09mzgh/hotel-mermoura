@@ -30,10 +30,22 @@ CREATE TABLE Client (
     Email_Client VARCHAR(100)
 );
 
+CREATE TABLE Cuisine_Type (
+    id_Cuisine INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE Restaurant_Cuisine (
+    id_Restaurant INT NOT NULL,
+    id_Cuisine INT NOT NULL,
+    PRIMARY KEY (id_Restaurant, id_Cuisine),
+    FOREIGN KEY (id_Restaurant) REFERENCES Restaurant(id_Restaurant) ON DELETE CASCADE,
+    FOREIGN KEY (id_Cuisine) REFERENCES Cuisine_Type(id_Cuisine) ON DELETE CASCADE
+);
+
 CREATE TABLE Restaurant (
     id_Restaurant INT PRIMARY KEY AUTO_INCREMENT,
-    capacite INT NOT NULL, 
-    Kitchen_type VARCHAR(100) NOT NULL,
+    capacite INT NOT NULL,
     id_Hotel INT NOT NULL,
     FOREIGN KEY (id_Hotel) REFERENCES Hotel(id_Hotel) ON DELETE CASCADE
 );

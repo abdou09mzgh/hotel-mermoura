@@ -2,12 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = JSON.parse(localStorage.getItem('hotelBooking'));
 
     if (!data) {
-        document.getElementById('confirmationDetails').innerText = 'No reservation data found.';
+        document.getElementById('confirmationDetails').innerText = 'Aucune donnée de réservation trouvée.';
         return;
     }
-
-    const pricePerPerson = 2000;
-    data.price = parseInt(data.guests) * pricePerPerson;
 
     const container = document.getElementById('confirmationDetails');
     container.innerHTML = `

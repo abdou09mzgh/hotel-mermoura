@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const bookingData = {
             arrival: document.getElementById('arrival').value,
             kitchenType: document.getElementById('kitchen-type').value,
-            guests: document.getElementById('guests').value,
+            guests: parseInt(document.getElementById('guests').value, 10),
             firstName: document.getElementById('first-name').value.trim(),
             lastName: document.getElementById('last-name').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
             paymentMethod: document.querySelector('input[name="payment"]:checked')?.value || ''
         };
 
-        const missingField = Object.entries(bookingData).find(([key, value]) => !value);
+        const missingField = Object.entries(bookingData).find(([key, value]) => !value && value !== 0);
         if (missingField) {
             alert(`Le champ ${missingField[0]} est requis.`);
             return;
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const result = await response.json();
 
             if (result.success) {
+                bookingData.price = result.price;
                 localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
 
                 if (bookingData.paymentMethod === 'online') {
