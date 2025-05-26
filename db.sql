@@ -54,7 +54,7 @@ CREATE TABLE Salle (
     id_Salle INT PRIMARY KEY AUTO_INCREMENT,
     Type_salle ENUM('fetes', 'conference') NOT NULL,
     capacite INT NOT NULL,
-    Prix DECIMAL(10,2) NOT NULL,
+    -- Prix DECIMAL(10,2) NOT NULL,
     id_Hotel INT NOT NULL,
     FOREIGN KEY (id_Hotel) REFERENCES Hotel(id_Hotel) ON DELETE CASCADE
 );
