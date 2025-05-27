@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', function () {
             paymentMethod: document.querySelector('input[name="payment"]:checked')?.value || ''
         };
 
-        const missingField = Object.entries(bookingData).find(([key, value]) => !value && value !== 0);
-        if (missingField) {
-            alert(`Le champ ${missingField[0]} est requis.`);
+        const missing = Object.entries(bookingData).find(([_, value]) => !value && value !== 0);
+        if (missing) {
+            alert(`Le champ ${missing[0]} est requis`);
             return;
         }
 
         try {
-            const response = await fetch('/hotel-mermoura/bookings/BookRes.php', {
+            const response = await fetch('BookRes.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(bookingData)
@@ -34,17 +34,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 bookingData.price = result.price;
                 localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
 
-                if (bookingData.paymentMethod === 'online') {
-                    window.location.href = '../dahabiya.html?id=' + result.reservationId;
-                } else {
-                    window.location.href = '../confirmation/confirmationRes.html?id=' + result.reservationId;
-                }
+                const redirectPage = bookingData.paymentMethod === 'online'
+                    ? '../dahabiya.html?id=' + result.reservationId
+                    : '../confirmation/confirmationRes.html?id=' + result.reservationId;
+
+                window.location.href = redirectPage;
             } else {
                 alert('Erreur: ' + result.message);
             }
-        } catch (err) {
+        } catch (error) {
+            console.error(error);
             alert('Erreur réseau ou serveur');
-            console.error(err);
         }
     });
 });

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2025 at 07:38 PM
+-- Generation Time: May 27, 2025 at 01:09 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `admin` (
   `id_Hotel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id_Admin`, `FirstName`, `LastName`, `User_name`, `password`, `id_Hotel`) VALUES
+(1, 'Abdou', 'Mezghache', 'abdou_mzgh', '$2y$10$zISrBpFfBySSjP0X5w3rNOcbmzCiXEcSHwYgMkBV8QK8h5UV2qp1C', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -54,82 +61,82 @@ CREATE TABLE `chambre` (
 --
 
 INSERT INTO `chambre` (`id_Chambre`, `id_Type_Chambre`, `statut`, `id_Hotel`) VALUES
-(1, 7, 'Empty', 1),
-(2, 7, 'Empty', 1),
-(3, 7, 'Empty', 1),
-(4, 7, 'Empty', 1),
-(5, 7, 'Empty', 1),
-(6, 7, 'Empty', 1),
-(7, 7, 'Empty', 1),
-(8, 7, 'Empty', 1),
-(9, 7, 'Empty', 1),
-(10, 7, 'Empty', 1),
-(11, 7, 'Empty', 1),
-(12, 7, 'Empty', 1),
-(13, 7, 'Empty', 1),
-(14, 7, 'Empty', 1),
-(15, 7, 'Empty', 1),
-(16, 7, 'Empty', 1),
-(17, 7, 'Empty', 1),
-(18, 7, 'Empty', 1),
-(19, 7, 'Empty', 1),
-(20, 7, 'Empty', 1),
-(21, 8, 'Empty', 1),
-(22, 8, 'Empty', 1),
-(23, 8, 'Empty', 1),
-(24, 8, 'Empty', 1),
-(25, 8, 'Empty', 1),
-(26, 8, 'Empty', 1),
-(27, 8, 'Empty', 1),
-(28, 8, 'Empty', 1),
-(29, 8, 'Empty', 1),
-(30, 8, 'Empty', 1),
-(31, 8, 'Empty', 1),
-(32, 8, 'Empty', 1),
-(33, 8, 'Empty', 1),
-(34, 8, 'Empty', 1),
-(35, 8, 'Empty', 1),
-(36, 9, 'Empty', 1),
-(37, 9, 'Empty', 1),
-(38, 9, 'Empty', 1),
-(39, 9, 'Empty', 1),
-(40, 9, 'Empty', 1),
-(41, 9, 'Empty', 1),
-(42, 9, 'Empty', 1),
-(43, 9, 'Empty', 1),
-(44, 9, 'Empty', 1),
-(45, 9, 'Empty', 1),
-(46, 9, 'Empty', 1),
-(47, 9, 'Empty', 1),
-(48, 10, 'Empty', 1),
-(49, 10, 'Empty', 1),
-(50, 10, 'Empty', 1),
-(51, 10, 'Empty', 1),
-(52, 10, 'Empty', 1),
-(53, 10, 'Empty', 1),
-(54, 10, 'Empty', 1),
-(55, 10, 'Empty', 1),
-(56, 10, 'Empty', 1),
-(57, 10, 'Empty', 1),
-(58, 10, 'Empty', 1),
-(59, 10, 'Empty', 1),
-(60, 11, 'Empty', 1),
-(61, 11, 'Empty', 1),
-(62, 11, 'Empty', 1),
-(63, 11, 'Empty', 1),
-(64, 11, 'Empty', 1),
-(65, 11, 'Empty', 1),
-(66, 11, 'Empty', 1),
-(67, 11, 'Empty', 1),
-(68, 11, 'Empty', 1),
-(69, 12, 'Empty', 1),
-(70, 12, 'Empty', 1),
-(71, 12, 'Empty', 1),
-(72, 12, 'Empty', 1),
-(73, 12, 'Empty', 1),
-(74, 12, 'Empty', 1),
-(75, 12, 'Empty', 1),
-(76, 12, 'Empty', 1);
+(1, 1, 'Empty', 1),
+(2, 1, 'Empty', 1),
+(3, 1, 'Empty', 1),
+(4, 1, 'Empty', 1),
+(5, 1, 'Empty', 1),
+(6, 1, 'Empty', 1),
+(7, 1, 'Empty', 1),
+(8, 1, 'Empty', 1),
+(9, 1, 'Empty', 1),
+(10, 1, 'Empty', 1),
+(11, 1, 'Empty', 1),
+(12, 1, 'Empty', 1),
+(13, 1, 'Empty', 1),
+(14, 1, 'Empty', 1),
+(15, 1, 'Empty', 1),
+(16, 1, 'Empty', 1),
+(17, 1, 'Empty', 1),
+(18, 1, 'Empty', 1),
+(19, 1, 'Empty', 1),
+(20, 1, 'Empty', 1),
+(21, 2, 'Empty', 1),
+(22, 2, 'Empty', 1),
+(23, 2, 'Empty', 1),
+(24, 2, 'Empty', 1),
+(25, 2, 'Empty', 1),
+(26, 2, 'Empty', 1),
+(27, 2, 'Empty', 1),
+(28, 2, 'Empty', 1),
+(29, 2, 'Empty', 1),
+(30, 2, 'Empty', 1),
+(31, 2, 'Empty', 1),
+(32, 2, 'Empty', 1),
+(33, 2, 'Empty', 1),
+(34, 2, 'Empty', 1),
+(35, 2, 'Empty', 1),
+(36, 3, 'Occupied', 1),
+(37, 3, 'Empty', 1),
+(38, 3, 'Empty', 1),
+(39, 3, 'Empty', 1),
+(40, 3, 'Empty', 1),
+(41, 3, 'Empty', 1),
+(42, 3, 'Empty', 1),
+(43, 3, 'Empty', 1),
+(44, 3, 'Empty', 1),
+(45, 3, 'Empty', 1),
+(46, 3, 'Empty', 1),
+(47, 3, 'Empty', 1),
+(48, 4, 'Empty', 1),
+(49, 4, 'Empty', 1),
+(50, 4, 'Empty', 1),
+(51, 4, 'Empty', 1),
+(52, 4, 'Empty', 1),
+(53, 4, 'Empty', 1),
+(54, 4, 'Empty', 1),
+(55, 4, 'Empty', 1),
+(56, 4, 'Empty', 1),
+(57, 4, 'Empty', 1),
+(58, 4, 'Empty', 1),
+(59, 4, 'Empty', 1),
+(60, 5, 'Empty', 1),
+(61, 5, 'Empty', 1),
+(62, 5, 'Empty', 1),
+(63, 5, 'Empty', 1),
+(64, 5, 'Empty', 1),
+(65, 5, 'Empty', 1),
+(66, 5, 'Empty', 1),
+(67, 5, 'Empty', 1),
+(68, 5, 'Empty', 1),
+(69, 6, 'Empty', 1),
+(70, 6, 'Empty', 1),
+(71, 6, 'Empty', 1),
+(72, 6, 'Empty', 1),
+(73, 6, 'Empty', 1),
+(74, 6, 'Empty', 1),
+(75, 6, 'Empty', 1),
+(76, 6, 'Empty', 1);
 
 -- --------------------------------------------------------
 
@@ -145,6 +152,40 @@ CREATE TABLE `client` (
   `Email_Client` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `client`
+--
+
+INSERT INTO `client` (`id_Client`, `FName_Client`, `LName_Client`, `Phone_Client`, `Email_Client`) VALUES
+(1, 'Abdou', 'Mezghache', '0791494240', 'abdou05mzgh@gmail.com'),
+(7, 'Marwane', 'Haine', '0791494240', 'abdou05mzgh@gmail.com'),
+(8, 'Hadjer', 'Bouragbi', '0791494240', 'abdou05mzgh@gmail.com'),
+(9, 'Abdou', 'Mezghache', '0791494240', 'abdou05mzgh@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cuisine_type`
+--
+
+CREATE TABLE `cuisine_type` (
+  `id_Cuisine` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cuisine_type`
+--
+
+INSERT INTO `cuisine_type` (`id_Cuisine`, `name`) VALUES
+(3, 'Algerian Kitchen'),
+(5, 'Asian Kitchen'),
+(2, 'French Kitchen'),
+(6, 'Indian Kitchen'),
+(1, 'Italian Kitchen'),
+(7, 'Mexican Kitchen'),
+(4, 'Turkish Kitchen');
+
 -- --------------------------------------------------------
 
 --
@@ -159,6 +200,16 @@ CREATE TABLE `facture` (
   `id_Reservation_Restaurant` int(11) DEFAULT NULL,
   `id_Reservation_Salle` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `facture`
+--
+
+INSERT INTO `facture` (`id_Facture`, `montant_total`, `date_facture`, `id_Reservation_Chambre`, `id_Reservation_Restaurant`, `id_Reservation_Salle`) VALUES
+(1, 10000.00, '2025-05-27', 1, NULL, NULL),
+(2, 100000.00, '2025-05-27', NULL, 6, NULL),
+(3, 16000.00, '2025-05-27', NULL, NULL, 1),
+(4, 20000.00, '2025-05-27', NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -177,7 +228,7 @@ CREATE TABLE `hotel` (
 --
 
 INSERT INTO `hotel` (`id_Hotel`, `nom_Hotel`, `Nbre_Etoiles`) VALUES
-(1, 'Mermoura', 4);
+(1, 'Hotel Mermoura', 1);
 
 -- --------------------------------------------------------
 
@@ -192,6 +243,16 @@ CREATE TABLE `paiement` (
   `date_paiement` date NOT NULL,
   `id_Facture` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `paiement`
+--
+
+INSERT INTO `paiement` (`id_Paiement`, `mode_paiement`, `montant`, `date_paiement`, `id_Facture`) VALUES
+(1, 'hotel', 10000.00, '2025-06-01', 1),
+(2, 'hotel', 100000.00, '2025-05-27', 2),
+(3, 'hotel', 16000.00, '2025-05-27', 3),
+(4, 'hotel', 20000.00, '2025-05-27', 4);
 
 -- --------------------------------------------------------
 
@@ -208,6 +269,13 @@ CREATE TABLE `reservation_chambre` (
   `id_Chambre` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `reservation_chambre`
+--
+
+INSERT INTO `reservation_chambre` (`id_Reservation`, `Date_Arive`, `Date_Depart`, `Nbre_personnes`, `id_Client`, `id_Chambre`) VALUES
+(1, '2025-06-01', '2025-06-02', 1, 1, 36);
+
 -- --------------------------------------------------------
 
 --
@@ -219,8 +287,16 @@ CREATE TABLE `reservation_restaurant` (
   `Date_Arive` date NOT NULL,
   `Nbre_personnes` int(11) NOT NULL,
   `id_Client` int(11) NOT NULL,
-  `id_Restaurant` int(11) NOT NULL
+  `id_Restaurant` int(11) NOT NULL,
+  `id_Cuisine` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation_restaurant`
+--
+
+INSERT INTO `reservation_restaurant` (`id_Reservation`, `Date_Arive`, `Nbre_personnes`, `id_Client`, `id_Restaurant`, `id_Cuisine`) VALUES
+(6, '2025-06-03', 50, 7, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -232,9 +308,18 @@ CREATE TABLE `reservation_salle` (
   `id_Reservation` int(11) NOT NULL,
   `Date_Arive` date NOT NULL,
   `Nbre_personnes` int(11) NOT NULL,
+  `Type_evenement` enum('fetes','conference') NOT NULL,
   `id_Client` int(11) NOT NULL,
   `id_Salle` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `reservation_salle`
+--
+
+INSERT INTO `reservation_salle` (`id_Reservation`, `Date_Arive`, `Nbre_personnes`, `Type_evenement`, `id_Client`, `id_Salle`) VALUES
+(1, '2025-06-04', 80, 'fetes', 8, 1),
+(2, '2025-06-05', 100, 'conference', 9, 1);
 
 -- --------------------------------------------------------
 
@@ -245,9 +330,39 @@ CREATE TABLE `reservation_salle` (
 CREATE TABLE `restaurant` (
   `id_Restaurant` int(11) NOT NULL,
   `capacite` int(11) NOT NULL,
-  `Kitchen_type` varchar(100) NOT NULL,
   `id_Hotel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurant`
+--
+
+INSERT INTO `restaurant` (`id_Restaurant`, `capacite`, `id_Hotel`) VALUES
+(1, 150, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurant_cuisine`
+--
+
+CREATE TABLE `restaurant_cuisine` (
+  `id_Restaurant` int(11) NOT NULL,
+  `id_Cuisine` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurant_cuisine`
+--
+
+INSERT INTO `restaurant_cuisine` (`id_Restaurant`, `id_Cuisine`) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 7);
 
 -- --------------------------------------------------------
 
@@ -257,11 +372,17 @@ CREATE TABLE `restaurant` (
 
 CREATE TABLE `salle` (
   `id_Salle` int(11) NOT NULL,
-  `Type_salle` enum('fetes','conference') NOT NULL,
   `capacite` int(11) NOT NULL,
   `Prix` decimal(10,2) NOT NULL,
   `id_Hotel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `salle`
+--
+
+INSERT INTO `salle` (`id_Salle`, `capacite`, `Prix`, `id_Hotel`) VALUES
+(1, 150, 150.00, 1);
 
 -- --------------------------------------------------------
 
@@ -282,12 +403,12 @@ CREATE TABLE `type_chambre` (
 --
 
 INSERT INTO `type_chambre` (`id_Type_Chambre`, `nom_type`, `Prix`, `nombres_chambres`, `id_Hotel`) VALUES
-(7, 'Single', 5000.00, 20, 1),
-(8, 'Double', 8000.00, 15, 1),
-(9, 'Junior-Single', 10000.00, 12, 1),
-(10, 'Junior-Double', 13000.00, 12, 1),
-(11, 'Apart-Single', 15000.00, 9, 1),
-(12, 'Apart-Double', 18000.00, 8, 1);
+(1, 'Single', 5000.00, 20, 1),
+(2, 'Double', 8000.00, 15, 1),
+(3, 'Junior-Single', 10000.00, 12, 1),
+(4, 'Junior-Double', 13000.00, 12, 1),
+(5, 'Apart-Single', 15000.00, 9, 1),
+(6, 'Apart-Double', 18000.00, 8, 1);
 
 --
 -- Indexes for dumped tables
@@ -314,6 +435,13 @@ ALTER TABLE `chambre`
 --
 ALTER TABLE `client`
   ADD PRIMARY KEY (`id_Client`);
+
+--
+-- Indexes for table `cuisine_type`
+--
+ALTER TABLE `cuisine_type`
+  ADD PRIMARY KEY (`id_Cuisine`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `facture`
@@ -351,7 +479,8 @@ ALTER TABLE `reservation_chambre`
 ALTER TABLE `reservation_restaurant`
   ADD PRIMARY KEY (`id_Reservation`),
   ADD KEY `id_Client` (`id_Client`),
-  ADD KEY `id_Restaurant` (`id_Restaurant`);
+  ADD KEY `id_Restaurant` (`id_Restaurant`),
+  ADD KEY `id_Cuisine` (`id_Cuisine`);
 
 --
 -- Indexes for table `reservation_salle`
@@ -367,6 +496,13 @@ ALTER TABLE `reservation_salle`
 ALTER TABLE `restaurant`
   ADD PRIMARY KEY (`id_Restaurant`),
   ADD KEY `id_Hotel` (`id_Hotel`);
+
+--
+-- Indexes for table `restaurant_cuisine`
+--
+ALTER TABLE `restaurant_cuisine`
+  ADD PRIMARY KEY (`id_Restaurant`,`id_Cuisine`),
+  ADD KEY `id_Cuisine` (`id_Cuisine`);
 
 --
 -- Indexes for table `salle`
@@ -390,7 +526,7 @@ ALTER TABLE `type_chambre`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_Admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `chambre`
@@ -402,13 +538,19 @@ ALTER TABLE `chambre`
 -- AUTO_INCREMENT for table `client`
 --
 ALTER TABLE `client`
-  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Client` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `cuisine_type`
+--
+ALTER TABLE `cuisine_type`
+  MODIFY `id_Cuisine` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `facture`
 --
 ALTER TABLE `facture`
-  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Facture` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `hotel`
@@ -420,43 +562,43 @@ ALTER TABLE `hotel`
 -- AUTO_INCREMENT for table `paiement`
 --
 ALTER TABLE `paiement`
-  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Paiement` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `reservation_chambre`
 --
 ALTER TABLE `reservation_chambre`
-  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reservation_restaurant`
 --
 ALTER TABLE `reservation_restaurant`
-  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reservation_salle`
 --
 ALTER TABLE `reservation_salle`
-  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Reservation` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `restaurant`
 --
 ALTER TABLE `restaurant`
-  MODIFY `id_Restaurant` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Restaurant` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `salle`
 --
 ALTER TABLE `salle`
-  MODIFY `id_Salle` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_Salle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `type_chambre`
 --
 ALTER TABLE `type_chambre`
-  MODIFY `id_Type_Chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_Type_Chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -501,7 +643,8 @@ ALTER TABLE `reservation_chambre`
 --
 ALTER TABLE `reservation_restaurant`
   ADD CONSTRAINT `reservation_restaurant_ibfk_1` FOREIGN KEY (`id_Client`) REFERENCES `client` (`id_Client`) ON DELETE CASCADE,
-  ADD CONSTRAINT `reservation_restaurant_ibfk_2` FOREIGN KEY (`id_Restaurant`) REFERENCES `restaurant` (`id_Restaurant`) ON DELETE CASCADE;
+  ADD CONSTRAINT `reservation_restaurant_ibfk_2` FOREIGN KEY (`id_Restaurant`) REFERENCES `restaurant` (`id_Restaurant`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reservation_restaurant_ibfk_3` FOREIGN KEY (`id_Cuisine`) REFERENCES `cuisine_type` (`id_Cuisine`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `reservation_salle`
@@ -515,6 +658,13 @@ ALTER TABLE `reservation_salle`
 --
 ALTER TABLE `restaurant`
   ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`id_Hotel`) REFERENCES `hotel` (`id_Hotel`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `restaurant_cuisine`
+--
+ALTER TABLE `restaurant_cuisine`
+  ADD CONSTRAINT `restaurant_cuisine_ibfk_1` FOREIGN KEY (`id_Restaurant`) REFERENCES `restaurant` (`id_Restaurant`) ON DELETE CASCADE,
+  ADD CONSTRAINT `restaurant_cuisine_ibfk_2` FOREIGN KEY (`id_Cuisine`) REFERENCES `cuisine_type` (`id_Cuisine`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `salle`

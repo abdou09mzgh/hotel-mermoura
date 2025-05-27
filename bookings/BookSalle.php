@@ -10,7 +10,7 @@ if (!$data) {
 require_once '../config/Database.php';
 
 $arrivalDate = $data['arrival'];
-$salleType = trim($data['salletype']);
+$typeEvenement = trim($data['typeEvenement']);
 $guests = (int)$data['guests'];
 $firstName = $data['firstName'];
 $lastName = $data['lastName'];
@@ -37,8 +37,8 @@ try {
     $stmt->execute([$firstName, $lastName, $phone, $email]);
     $clientId = $conn->lastInsertId();
 
-    $stmt = $conn->prepare("INSERT INTO Reservation_Salle (Date_Arive, Nbre_personnes, id_Client, id_Salle) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$arrivalDate, $guests, $clientId, $salleId]);
+    $stmt = $conn->prepare("INSERT INTO Reservation_Salle (Date_Arive, Nbre_personnes, Type_evenement, id_Client, id_Salle) VALUES (?, ?, ?, ?, ?)");
+    $stmt->execute([$arrivalDate, $guests, $typeEvenement, $clientId, $salleId]);
     $reservationId = $conn->lastInsertId();
 
     $stmt = $conn->prepare("INSERT INTO Facture (montant_total, date_facture, id_Reservation_Salle) VALUES (?, ?, ?)");
