@@ -102,46 +102,63 @@
                     </div>
                 </div>
 
-                <!-- Clients Table -->
-                <div class="clients-table-container">
-                    <table class="clients-table">
-                        <thead>
-                            <tr>
-                                <th>Client ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Country</th>
-                                <th>Bookings</th>
-                                <th>Last Stay</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#CL-1001</td>
-                                <td>
-                                    <div class="client-info">
-                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Doe" class="client-avatar">
-                                        <span>John Doe</span>
-                                    </div>
-                                </td>
-                                <td>john.doe@example.com</td>
-                                <td>+213 661 32 23 73</td>
-                                <td>Algeria</td>
-                                <td>5</td>
-                                <td>2023-11-18</td>
-                                <td><span class="status active">Active</span></td>
-                                <td class="actions">
-                                    
-                                    <button class="btn-delete"><i class="fas fa-trash"></i></button>
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-                </div>
+<!-- Clients Chambre -->
+<div class="client-section-container">
+    <h2>Clients avec réservation chambre</h2>
+    <table class="clients-chambre-table">
+        <thead>
+            <tr>
+                <th>Client ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Nom de chambre</th>
+                <th>Date Arrivée</th>
+                <th>Date Départ</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Clients Restaurant -->
+<div class="client-section-container">
+    <h2>Clients avec réservation restaurant</h2>
+    <table class="clients-restaurant-table">
+        <thead>
+            <tr>
+                <th>Client ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Restaurant ID</th>
+                <th>Cuisine</th>
+                <th>Date Arrivée</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<!-- Clients Salle -->
+<div class="client-section-container">
+    <h2>Clients avec réservation salle</h2>
+    <table class="clients-salle-table">
+        <thead>
+            <tr>
+                <th>Client ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Salle ID</th>
+                <th>Type événement</th>
+                <th>Date Arrivée</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
 
                 <!-- Pagination -->
                 <div class="pagination">
@@ -308,7 +325,8 @@
         </div>
     </div>
 
-    <script src="js/main.js"></script>
-    <script src="js/clients.js"></script>
+    <!-- <script src="js/main.js"></script>
+    <script src="js/clients.js"></script> -->
+    <script src="js/get_clients.js"></script>
 </body>
 </html>

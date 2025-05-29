@@ -16,16 +16,16 @@ function loadRooms(page = 1) {
             roomTableBody.innerHTML = "";
             data.forEach(room => {
                 roomTableBody.innerHTML += `
-                    <tr>
-                        <td>${room.room_id}</td>
-                        <td>${room.nom_type}</td>
-                        <td>${room.Prix} DZD</td>
-                        <td>—</td>
-                        <td><span class="status ${room.statut.toLowerCase()}">${room.statut}</span></td>
-                        <td class="actions">
-                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>`;
+    <tr>
+        <td>${room.room_id}</td>
+        <td>${room.nom_type}</td>
+        <td>${room.Prix} DZD</td>
+        <td><span class="status ${room.statut.toLowerCase()}">${room.statut}</span></td>
+        <td class="actions">
+            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+        </td>
+    </tr>`;
+
             });
         });
 }
