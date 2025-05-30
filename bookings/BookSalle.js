@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
 
         if (bookingData.paymentMethod === 'online') {
-          window.location.href = '../dahabiya.html?id=' + result.reservationId;
+          window.location.href = '../dahadiyasa.html?id=' + result.reservationId;
         } else {
           window.location.href = '../confirmation/confirmationSalle.html?id=' + result.reservationId;
         }

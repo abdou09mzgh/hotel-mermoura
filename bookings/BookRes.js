@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('hotelBooking', JSON.stringify(bookingData));
 
                 const redirectPage = bookingData.paymentMethod === 'online'
-                    ? '../dahabiya.html?id=' + result.reservationId
+                    ? '../dahabiyared.html?id=' + result.reservationId
                     : '../confirmation/confirmationRes.html?id=' + result.reservationId;
 
                 window.location.href = redirectPage;

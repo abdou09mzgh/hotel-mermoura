@@ -174,13 +174,14 @@ window.onload = function () {
   };
   
   Object.entries(routes).forEach(([selector, path]) => {
-    const btn = document.querySelector(selector);
-    if (btn) {
-      btn.onclick = () => {
-        window.location.href = path;
-      };
-    }
+  const buttons = document.querySelectorAll(selector);
+  buttons.forEach((btn) => {
+    btn.onclick = () => {
+      window.location.href = path;
+    };
   });
+});
+
   
 
 //   const btn4 = document.querySelector('.Button4');
