@@ -168,3 +168,89 @@
         font-size: 0.9rem;
     }
 }
+
+/* Pagination styles */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn-pagination {
+    border: none;
+    background-color: #f0f0f0;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-pagination:hover:not(:disabled) {
+    background-color: #ccc;
+}
+
+.btn-pagination:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-pagination.active {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Search box */
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background-color: white;
+    position: relative;
+    transform: translate(400px , -10px);
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.search-box i {
+    margin-left: 5px;
+    color: #888;
+}
+
+/* Add Client Button */
+.btn-add-client {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+    position: relative;
+    transform: translate(580px , -10px);
+}
+
+.btn-add-client:hover {
+    background-color: grey;
+}
+
+/* Clients header actions */
+.clients-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
