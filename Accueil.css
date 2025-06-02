@@ -1010,28 +1010,22 @@ transform: translate(10px , -30px);
         gap: 40px;
     }
 }
-
 @media (max-width: 576px) {
     .hero h1 {
         font-size: 28px;
     }
-    
     .hero p {
         font-size: 16px;
     }
-    
     .section {
         padding: 60px 5%;
     }
-    
     .section-title {
         font-size: 26px;
     }
-    
     .apropos-buttons {
         flex-direction: column;
     }
-    
     .Button1, .Button2, .Button3 {
         width: 100%;
     }
