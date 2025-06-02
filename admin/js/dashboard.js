@@ -12,7 +12,7 @@ function initBookingChart() {
         data: {
             labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [{
-                label: 'Bookings 2023',
+                label: 'Bookings 2024',
                 data: [12, 19, 15, 22, 18, 25, 30, 28, 26, 22, 18, 24],
                 backgroundColor: 'rgba(52, 152, 219, 0.2)',
                 borderColor: 'rgba(52, 152, 219, 1)',
@@ -35,4 +35,12 @@ function initBookingChart() {
             }
         }
     });
+}
+
+const btn2 = document.querySelector('.user-profile');
+
+if (btn2) {
+    btn2.onclick = function () {
+    window.location.href = 'settings.html#user-settings-section';
+    };
 }

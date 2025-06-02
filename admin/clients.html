@@ -34,12 +34,12 @@
                             <span>Rooms Management</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="bookings.html">
                             <i class="fas fa-calendar-check"></i>
                             <span>Bookings</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="active">
                         <a href="clients.html">
                             <i class="fas fa-users"></i>
@@ -74,14 +74,14 @@
                     <h1>Clients Management</h1>
                 </div>
                 <div class="navbar-right">
-                    <div class="notifications">
+                    <!-- <div class="notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge">3</span>
-                    </div>
+                    </div> -->
                     <div class="user-profile">
                         <i class="ri-user-fill"></i>
                         <span>Admin</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <!-- <i class="fas fa-chevron-down"></i> -->
                     </div>
                 </div>
             </header>
@@ -92,9 +92,9 @@
                 <div class="clients-header">
                     <h2>All Clients</h2>
                     <div class="clients-actions">
-                        <div class="search-box">
+                        <!-- <div class="search-box">
                             <input type="text" placeholder="Rechercher un client..." id="clientSearch">
-                        </div>
+                        </div> -->
                         <div id="clientList"></div>
                         <button class="btn-add-client" id="addClientBtn">
                             <i class="fas fa-plus"></i> Add Client
@@ -112,7 +112,8 @@
                 <th>Name</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Nom de chambre</th>
+                <th>Room Id</th>
+                <th>Payment</th>
                 <th>Date Arrivée</th>
                 <th>Date Départ</th>
             </tr>
@@ -133,6 +134,7 @@
                 <th>Phone</th>
                 <th>Restaurant ID</th>
                 <th>Cuisine</th>
+                <th>Payment</th>
                 <th>Date Arrivée</th>
             </tr>
         </thead>
@@ -152,6 +154,7 @@
                 <th>Phone</th>
                 <th>Salle ID</th>
                 <th>Type événement</th>
+                <th>Payment</th>
                 <th>Date Arrivée</th>
             </tr>
         </thead>
@@ -176,7 +179,7 @@
         </main>
     </div>
     <script src="js/main.js"></script>
-    <script src="js/clients.js"></script>
+    <!-- <script src="js/clients.js"></script> -->
     <script src="js/get_clients.js"></script>
 </body>
 </html>

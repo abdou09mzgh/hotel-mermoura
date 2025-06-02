@@ -34,12 +34,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="bookings.html">
-                            <i class="fas fa-calendar-check"></i>
-                            <span>Bookings</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="clients.html">
                             <i class="fas fa-users"></i>
                             <span>Clients</span>
@@ -73,14 +67,14 @@
                     <h1>Dashboard</h1>
                 </div>
                 <div class="navbar-right">
-                    <div class="notifications">
+                    <!-- <div class="notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge">3</span>
-                    </div>
+                    </div> -->
                     <div class="user-profile">
                         <i class="ri-user-fill"></i>
                         <span>Admin</span>
-                        <i class="fas fa-chevron-down"></i>
+                        <!-- <i class="fas fa-chevron-down"></i> -->
                     
                     </div>
                 </div>
@@ -91,77 +85,63 @@
                 <!-- Stats Cards -->
                 <div class="stats-cards">
                     <div class="card">
-                        <div class="card-icon bg-blue">
-                            <i class="fas fa-bed"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Total Rooms</h3>
-                            <p>25</p>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-icon bg-green">
-                            <i class="fas fa-calendar-check"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Current Bookings</h3>
-                            <p>18</p>
-                        </div>
-                    </div>
-                    <div class="card">
+    <div class="card-icon bg-blue">
+        <i class="fas fa-bed"></i>
+    </div>
+    <div class="card-info">
+        <h3>Total Rooms</h3>
+        <p id="totalRooms">Loading...</p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-icon bg-green">
+        <i class="fas fa-calendar-check"></i>
+    </div>
+    <div class="card-info">
+        <h3>Current Bookings</h3>
+        <p id="currentBookings">Loading...</p>
+    </div>
+</div>
+
+<script>
+fetch('php/dashboard_status.php')
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('totalRooms').textContent = data.total_rooms ?? '0';
+        document.getElementById('currentBookings').textContent = data.current_bookings ?? '0';
+    })
+    .catch(error => {
+        console.error('Error fetching dashboard data:', error);
+        document.getElementById('totalRooms').textContent = 'Error';
+        document.getElementById('currentBookings').textContent = 'Error';
+    });
+</script>
+
+                    <!-- <div class="card">
                         <div class="card-icon bg-orange">
                             <i class="fas fa-users"></i>
                         </div>
                         <div class="card-info">
                             <h3>Happy Clients</h3>
                             <p>600+</p>
-                        </div>
-                    </div>
-                    <div class="card">
+                        </div> 
+                    </div> -->
+                    <!-- <div class="card">
                         <div class="card-icon bg-purple">
                             <i class="fas fa-star"></i>
                         </div>
-                        <div class="card-info">
+                         <div class="card-info">
                             <h3>Occupancy Rate</h3>
                             <p>72%</p>
-                        </div>
-                    </div>
+                        </div> 
+                    </div> -->
                 </div>
 
                 <!-- Booking Trends Chart -->
                 <div class="chart-container">
                     <h2>Booking Trends</h2>
                     <canvas id="bookingChart"></canvas>
-                </div>
-
-                <!-- Recent Bookings Table -->
-                <div class="recent-bookings">
-                    <h2>Recent Bookings</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Booking ID</th>
-                                <th>Guest Name</th>
-                                <th>Room Type</th>
-                                <th>Check-In</th>
-                                <th>Check-Out</th>
-                                <th>Status</th>
-                            
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#BK-1001</td>
-                                <td>John Doe</td>
-                                <td>Junior-Single</td>
-                                <td>2023-11-15</td>
-                                <td>2023-11-18</td>
-                                <td><span class="status confirmed">Confirmed</span></td>
-                        
-                            </tr>
-                        
-                        </tbody>
-                    </table>
                 </div>
             </div>
         </main>

@@ -203,7 +203,7 @@
 }
 
 /* Search box */
-.search-box {
+/* .search-box {
     display: flex;
     align-items: center;
     border: 1px solid #ccc;
@@ -224,7 +224,7 @@
 .search-box i {
     margin-left: 5px;
     color: #888;
-}
+} */
 
 /* Add Client Button */
 .btn-add-client {
@@ -240,7 +240,7 @@
     gap: 6px;
     transition: background-color 0.2s ease;
     position: relative;
-    transform: translate(580px , -10px);
+    transform: translate(800px , -10px);
 }
 
 .btn-add-client:hover {

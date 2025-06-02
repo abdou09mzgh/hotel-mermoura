@@ -86,3 +86,11 @@ roomForm.addEventListener('submit', (e) => {
 });
 
 loadRooms(currentPage);
+
+const btn2 = document.querySelector('.user-profile');
+
+if (btn2) {
+    btn2.onclick = function () {
+    window.location.href = 'settings.html#user-settings-section';
+    };
+}

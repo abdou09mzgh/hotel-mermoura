@@ -269,3 +269,32 @@ input[type="checkbox"], input[type="radio"] {
         gap: 1rem;
     }
 }
+
+/* Add Client Button */
+.signin-btn {
+    background-color: gray;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease;
+    position: relative;
+    transform: translate(500px , -30px);
+}
+
+.signin-btn:hover {
+    background-color: grey;
+}
+
+/* Clients header actions */
+/* .clients-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+} */

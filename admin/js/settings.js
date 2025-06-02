@@ -164,3 +164,14 @@ window.onload = function () {
         }
     });
 };
+
+//   const btn4 = document.querySelector('.Button4');
+//  const fin_btn4 = document.getElementById('reservation'); 
+
+//   if (btn4 && fin_btn4) {
+//   btn4.onclick = function() {
+//     fin_btn4.scrollIntoView({
+//       behavior: 'smooth'
+//     });
+//   };
+// }

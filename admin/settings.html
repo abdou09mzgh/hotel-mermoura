@@ -32,12 +32,12 @@
                             <span>Rooms Management</span>
                         </a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="bookings.html">
                             <i class="fas fa-calendar-check"></i>
                             <span>Bookings</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="clients.html">
                             <i class="fas fa-users"></i>
@@ -72,15 +72,15 @@
                     <h1 id="settings">Settings</h1>
                 </div>
                 <div class="navbar-right">
-                    <div class="notifications">
+                    <!-- <div class="notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge">3</span>
-                    </div>
-                    <div class="user-profile">
+                    </div> -->
+                    <!-- <div class="user-profile">
                         <i class="ri-user-fill"></i>
                         <span>Admin</span>
                         <i class="fas fa-chevron-down"></i>
-                    </div>
+                    </div> -->
                 </div>
             </header>
 
@@ -95,7 +95,7 @@
                             <li id="booking-settings" data-tab="booking-settings"><i class="fas fa-calendar-alt"></i> Booking Rules</li>
                             <li id="payment-settings" data-tab="payment-settings"><i class="fas fa-credit-card"></i> Payments</li>
                             <li id="email-settings" data-tab="email-settings"><i class="fas fa-envelope"></i> Email Templates</li>
-                            <li id="user-settings" data-tab="user-settings"><i class="fas fa-user-shield"></i> User Accounts</li>
+                            <li id="user-settings" data-tab="user-settings"><i class="fas fa-user-shield"></i> Admins Accounts</li>
                             <li id="Maintenance" data-tab="maintenance"><i class="fas fa-tools"></i> Maintenance</li>
                         </ul>
                         
@@ -380,16 +380,17 @@ Hotel Mermoura Team
                         </div>
 
                         <!-- User Accounts Tab -->
-                        <div id="user-settings-section" style="margin-top: 200px;">Section: User Settings</div>
+                        <div id="user-settings-section" style="margin-top: 200px;">Section: Admins Settings</div>
                         <div class="settings-tab" id="user-settings">
-                            <h2><i class="fas fa-user-shield"></i> User Accounts</h2>
+                            <h2><i class="fas fa-user-shield"></i> Admins Accounts</h2>
+                            <button type="button" class="signin-btn" onclick="window.location.href='adduser.html'">
+                                <i class="fas fa-user-plus"></i> Add Admin
+                            </button> 
                             <div class="user-management">
                                 <div class="users-list">
                                     <div class="user-header">
                                         
-                                        
                                     </div>
-                                    
                                     <table class="users-table">
                                         <thead>
                                             <tr>
@@ -400,13 +401,10 @@ Hotel Mermoura Team
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
-                                            
+                                        
                                         </tbody>
                                     </table>
-                                </div>
-                                
-                                
+                                </div> 
                         </div>
 
                         <!-- Maintenance Tab -->
